@@ -1,0 +1,40 @@
+{
+  "name": "codex-review-gate",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "review-gate": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit --noUnusedLocals --noUnusedParameters",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "review": "npm run build --silent && node dist/cli.js",
+    "demo": "npm run build --silent && node examples/demo.mjs",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "description": "Local worktree risk review and existing npm validation reports",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "src/",
+    "scripts/",
+    "test/",
+    "benchmark/",
+    "examples/",
+    "tsconfig.json",
+    "REVIEW_GATE_RESPONSIBILITY.md",
+    "VALIDATION_STATUS_SEMANTICS.md",
+    "SECURITY.md",
+    "THIRD_PARTY_NOTICES.md"
+  ]
+}
